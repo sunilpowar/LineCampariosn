@@ -16,6 +16,9 @@ namespace LineComparison
         public int S_Two;
         public int R_One;
         public int R_Two;
+        public double Length_XY;
+        public double Length_SR;
+
         public void length_line()
         {
 
@@ -40,14 +43,29 @@ namespace LineComparison
             Console.WriteLine("Enter vale R_Two");
             R_Two = Convert.ToInt32(Console.ReadLine());
 
-            double Length_XY = Math.Sqrt(Math.Pow((X_One - X_Two), 2) + Math.Pow((Y_Two - Y_One), 2));
-            Console.WriteLine("Length of Line 1 is:: " + Length_XY);
+            Length_XY = Math.Sqrt(Math.Pow((X_Two - X_One), 2) + Math.Pow((Y_Two - Y_One), 2));
+            Console.WriteLine("Length of Value 1 is:: " + Length_XY);
 
-            double Length_SR = Math.Sqrt(Math.Pow((S_Two - S_One), 2) + Math.Pow((R_Two - R_One), 2));
-            Console.WriteLine("Length of Line 2 is: " + Length_SR);
+            Length_SR = Math.Sqrt(Math.Pow((S_Two - S_One), 2) + Math.Pow((R_Two - R_One), 2));
+            Console.WriteLine("Length of Value 2 is: " + Length_SR);
 
         }
-
+        public void Comparelines()
+        {
+            double Differene = Length_XY.CompareTo(Length_SR);
+            if (Differene < 0)
+            {
+                Console.WriteLine("Length of XY is less than Length of SR");
+            }
+            if (Differene > 0)
+            {
+                Console.WriteLine("Length of XY is greater than Length of SR");
+            }
+            if (Differene == 0)
+            {
+                Console.WriteLine("Length of XY is equal to Length of SR");
+            }
+            Console.ReadKey();
+        }
     }
 }
-
